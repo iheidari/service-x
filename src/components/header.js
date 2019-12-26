@@ -17,7 +17,7 @@ const Header = () => {
           node {
             name
             title
-            showInMenu
+            menuOrder
             path
           }
         }

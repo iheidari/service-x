@@ -28,8 +28,10 @@ const StyledLink = styled(Link)`
 // background-color: ${({ active }) => (active ? " #ae5cff" : null)};
 
 const Navbar = ({ items }) => {
-  const menuItems = items.map(({ node }) => {
-    if (node.showInMenu) {
+  const sortedItems = items.filter(({ node }) => node.menuOrder > 0)
+  sortedItems.sort(({ node }) => node.menuOrder)
+  const menuItems = sortedItems.map(({ node }) => {
+    if (node.menuOrder) {
       return (
         <Menu key={node.path}>
           <StyledLink to={node.path}>{node.title}</StyledLink>

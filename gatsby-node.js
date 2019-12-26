@@ -17,7 +17,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               path
               description
               keywords
-              showInMenu
               template
             }
           }
