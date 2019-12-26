@@ -8,7 +8,6 @@ const Menu = styled.li`
   text-align: center;
   display: inline-block;
   padding: 0 10px;
-  background-color: ${({ active }) => (active ? " #ae5cff" : null)};
   :hover {
     background-color: #ae5cff;
   }
@@ -24,14 +23,15 @@ const StyledLink = styled(Link)`
   vertical-align: middle;
 `
 
+// TODO: Active menu item
+// active={document.location.pathname === node.path ? "true" : null}
+// background-color: ${({ active }) => (active ? " #ae5cff" : null)};
+
 const Navbar = ({ items }) => {
   const menuItems = items.map(({ node }) => {
     if (node.showInMenu) {
       return (
-        <Menu
-          key={node.path}
-          active={document.location.pathname === node.path ? "true" : null}
-        >
+        <Menu key={node.path}>
           <StyledLink to={node.path}>{node.title}</StyledLink>
         </Menu>
       )
